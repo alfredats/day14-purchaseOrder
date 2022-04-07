@@ -2,6 +2,7 @@ package visa.vttp.paf.day14purchaseOrder.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class OrderFormWrapper {
     private String id;
@@ -9,7 +10,7 @@ public class OrderFormWrapper {
     private List<LineItem> lineItems;
 
     public OrderFormWrapper() {
-        final String hashStr = this.hashCode() + ""; 
+        final String hashStr = UUID.randomUUID().toString(); 
         this.id = hashStr.substring(0,8);
         this.po = new PurchaseOrder(this.id);
         this.lineItems = new ArrayList<>(4);

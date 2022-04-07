@@ -32,7 +32,7 @@
                              <tbody>
                                 <tr th:each="item, stat : *{lineItems}">  
                                     <td><input type="number" th:field="*{lineItems[__${stat.index}__].SKU}"></td>
-                                    <td><input type="number" th:field="*{lineItems[__${stat.index}__].QTY}" min="0"></td>
+                                    <td><input type="number" th:field="*{lineItems[__${stat.index}__].QTY}" min="1"></td>
                                 </tr>
                              </tbody>
                          </table>

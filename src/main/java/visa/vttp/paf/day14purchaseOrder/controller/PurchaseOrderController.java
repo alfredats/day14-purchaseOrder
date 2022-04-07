@@ -35,7 +35,7 @@ public class PurchaseOrderController {
         logger.info(">>> Order Form: " + ofw.toString());
         ModelAndView mav;
 
-        poSvc.submitPurchaseOrder(ofw);
+        poSvc.submitOrderForm(ofw);
 
         mav = new ModelAndView("redirect:/");
         return mav;

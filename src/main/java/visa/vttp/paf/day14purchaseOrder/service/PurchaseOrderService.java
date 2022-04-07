@@ -20,17 +20,14 @@ public class PurchaseOrderService {
     @Autowired
     private KwikmartRepo kRepo;
 
-    public void submitPurchaseOrder(OrderFormWrapper ofw) {
+    public void submitOrderForm(OrderFormWrapper ofw) {
         PurchaseOrder po = ofw.getPo();
         List<LineItem> items = ofw.getLineItems();
 
         for (LineItem itm : items) {
+            if (itm.isEmpty()) { break; }
             Integer sku = itm.getSKU();
-            if (sku == null) {
-                break;
-            } else if (!kRepo.hasSKU(sku)) {
-                throw new PurchaseOrderException("SKU not found: " + sku);
-            }
+            if (!kRepo.hasSKU(sku)) { throw new PurchaseOrderException("SKU not found: " + sku); }
         }
 
         kRepo.insertPurchaseOrder(po);

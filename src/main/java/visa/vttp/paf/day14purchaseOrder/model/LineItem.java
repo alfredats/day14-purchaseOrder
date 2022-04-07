@@ -6,7 +6,7 @@ public class LineItem {
     private Integer QTY;
 
     public LineItem() {};
-    public LineItem(String orderID) {this.orderID = orderID;}
+    public LineItem(String orderID) { this.orderID = orderID; }
 
     @Override
     public String toString() {
